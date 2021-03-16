@@ -1,0 +1,14 @@
+// Patrik Cerbak - 2021
+//@version=4
+
+study("EMAs", overlay=true)
+
+ema0Length = input(title="First EMA length", type=input.integer, defval=10)
+ema1Length = input(title="Second EMA length", type=input.integer, defval=20)
+ema2Length = input(title="Third EMA length", type=input.integer, defval=50)
+ema3Length = input(title="Fourth EMA length", type=input.integer, defval=100)
+
+plot(ema(close, ema0Length), color=#F6AE28, linewidth=2)
+plot(ema(close, ema1Length), color=#2E9AB2, linewidth=2)
+plot(ema(close, ema2Length), color=#A04095, linewidth=2)
+plot(ema(close, ema3Length), color=#3F4750, linewidth=2)
