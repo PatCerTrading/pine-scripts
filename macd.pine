@@ -1,0 +1,13 @@
+// Patrik Cerbak - 2021
+//@version=4
+
+study("MACD")
+
+fastLength = input(title="Fast length", type=input.integer, defval=12)
+slowLength = input(title="Slow length", type=input.integer, defval=26)
+signalLength = input(title="Signal length", type=input.integer, defval=9)
+
+macd = ema(close, fastLength) - ema(close, slowLength)
+
+plot(macd, color=#2E9AB2, linewidth=2)
+plot(ema(macd, signalLength), color=#F6AE28)
