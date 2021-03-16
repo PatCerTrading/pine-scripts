@@ -1,0 +1,16 @@
+// Patrik Cerbak - 2021
+//@version=4
+
+study("RSI | STOCH")
+
+rsiLength = input(title="RSI length", type=input.integer, defval=14)
+rsiSmooth = input(title="RSI smooth", type=input.integer, defval=1)
+stochLength = input(title="STOCH length", type=input.integer, defval=14)
+stochSmooth = input(title="STOCH smooth", type=input.integer, defval=3)
+
+plot(sma(rsi(close, rsiLength), rsiSmooth), color=#2E9AB2)
+plot(sma(stoch(close, high, low, stochLength), stochSmooth), color=#A04095)
+
+line0 = hline(25, color=#F6AE28)
+line1 = hline(75, color=#F6AE28)
+fill(line0, line1, color=#F6AE28, transp=95)
